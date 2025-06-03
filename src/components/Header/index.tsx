@@ -4,6 +4,8 @@ import { Container, useTheme } from '@mui/material'
 import Btn from '../compButton'
 import * as S from './styles'
 import Link from 'next/link'
+import Image from 'next/image'
+import MenuIcon from '@mui/icons-material/Menu'
 
 export default function Header() {
   const theme = useTheme()
@@ -12,11 +14,19 @@ export default function Header() {
     <S.Header>
       <Container>
         <Link href="/">
-          <img
+          <Image
             src="/img/logo.png"
             alt="logo bytebank"
             className="logo"
-            width="146"
+            width={146}
+            height={32}
+          />
+          <Image
+            src="/img/logo-mobile.png"
+            alt="logo bytebank"
+            className="logo-mobile"
+            width={26}
+            height={26}
           />
         </Link>
 
@@ -37,6 +47,8 @@ export default function Header() {
             Já tenho conta
           </Btn>
         </S.Buttons>
+
+        <MenuIcon color="primary" />
       </Container>
     </S.Header>
   )

@@ -23,7 +23,7 @@ export const Footer = styled.footer`
   }
 
   .social {
-    text-align: center;
+    text-align: left;
 
     h3 {
       margin-bottom: 24px;
@@ -33,8 +33,18 @@ export const Footer = styled.footer`
       align-items: center;
       display: flex;
       gap: 24px;
-      justify-content: center;
+      justify-content: flex-start;
       padding-top: 20px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .social {
+      text-align: center;
+
+      ul {
+        justify-content: center;
+      }
     }
   }
 `

@@ -1,5 +1,4 @@
 'use client'
-import '@css/dash-globals.css'
 import Header from '@dashboard/Header'
 import { Container, createTheme } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'

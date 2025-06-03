@@ -11,14 +11,14 @@ export default function Dashboard() {
     <Layout>
       <Seo title="Dashboard" />
       <Grid container spacing={3}>
-        <Grid size={2}>
+        <Grid size={{ xs: 12, lg: 2 }}>
           <Menu />
         </Grid>
-        <Grid size={7}>
+        <Grid size={{ xs: 12, lg: 7 }}>
           <Welcome />
           <Actions />
         </Grid>
-        <Grid size={3}>
+        <Grid size={{ xs: 12, lg: 3 }}>
           <CashFlow />
         </Grid>
       </Grid>

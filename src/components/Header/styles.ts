@@ -15,6 +15,19 @@ export const Header = styled.header`
   .logo {
     margin-right: 50px;
   }
+
+  .logo-mobile {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .logo {
+      display: block;
+    }
+    .logo-mobile {
+      display: none;
+    }
+  }
 `
 
 type MenuProps = {
@@ -22,7 +35,7 @@ type MenuProps = {
 }
 
 export const Menu = styled.ul<MenuProps>`
-  display: flex;
+  display: none;
 
   li {
     list-style: none;
@@ -32,6 +45,10 @@ export const Menu = styled.ul<MenuProps>`
       display: inline-block;
       padding: 10px 20px;
     }
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
   }
 `
 

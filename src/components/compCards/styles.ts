@@ -12,15 +12,8 @@ export const CardsContainer = styled.section`
     width: 100%;
   }
 
-  ul {
-    display: flex;
-    width: 100%;
-
-    li {
-      list-style: none;
-      text-align: center;
-      width: 25%;
-    }
+  .card {
+    text-align: center;
   }
 
   h3 {

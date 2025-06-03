@@ -1,6 +1,6 @@
 'use client'
 import { Inter } from 'next/font/google'
-import '@css/globals.css'
+//import '@css/globals.css'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 import { Container, createTheme } from '@mui/material'
