@@ -3,6 +3,9 @@
   --foreground: #171717;
   --radius: 8px;
   --body: #000000;
+  --body-font-size: 13px;
+  --text-sec: #8b8b8b;
+  --h3: 25px;
 }
 
 @media (prefers-color-scheme: dark) {

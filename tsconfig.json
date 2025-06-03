@@ -2,6 +2,10 @@
   "compilerOptions": {
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -23,7 +27,9 @@
       "@/*": ["./src/*"],
       "@components/*": ["components/*"],
       "@css/*": ["assets/css/*"],
-      "@dashboard/*": ["components/dashboard/*"]
+      "@dashboard/*": ["components/dashboard/*"],
+      "@services/*": ["services/*"],
+      "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

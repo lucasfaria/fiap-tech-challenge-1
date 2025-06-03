@@ -9,7 +9,7 @@ export const WelcomeContainer = styled.div<WelcomeProps>`
   border-radius: var(--radius);
   color: #fff;
   display: flex;
-  padding: 24px;
+  padding: 32px;
 
   & > div {
     width: 50%;
@@ -22,7 +22,7 @@ export const Name = styled.h1`
   margin-bottom: 24px;
 `
 
-export const Date = styled.p`
+export const Date = styled.div`
   font-size: 13px;
 `
 

@@ -1,0 +1,11 @@
+{
+  "cashflow": [
+    { "id": "1", "date": "2025-04-25T20:33:57-03:00", "type": "Depósito", "value": 150 },
+    { "id": "2", "date": "2025-03-25T20:33:57-03:00", "type": "Transferência", "value": 150 },
+    { "id": "3", "date": "2025-01-25T20:33:57-03:00", "type": "Transferência", "value": 1447 },
+    { "id": "4", "date": "2025-02-25T20:33:57-03:00", "type": "Transferência", "value": 321 }
+  ],
+  "user": [
+    { "id": "1", "name": "Lucas Faria" }    
+  ]
+}
