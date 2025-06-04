@@ -1,6 +1,6 @@
+import { useTheme } from '@mui/material'
 import Link from 'next/link'
 import * as S from './styles'
-import { useTheme } from '@mui/material'
 
 export default function Menu() {
   const theme = useTheme()
@@ -16,9 +16,6 @@ export default function Menu() {
         </li>
         <li>
           <Link href="investimentos">Investimentos</Link>
-        </li>
-        <li>
-          <Link href="outros-servicos">Outros serviços</Link>
         </li>
       </ul>
     </S.Menu>

@@ -10,7 +10,6 @@ const ByteButton = styled(Button)({
   textTransform: 'none',
   fontSize: 16,
   lineHeight: 1.5,
-  fontFamily: ['Inter'].join(','),
 })
 
 export default function Btn({

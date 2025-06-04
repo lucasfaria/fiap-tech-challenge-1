@@ -13,11 +13,8 @@ export const Header = styled.header`
   }
 
   .logo {
-    margin-right: 50px;
-  }
-
-  .logo-mobile {
     display: none;
+    margin-right: 50px;
   }
 
   @media (min-width: 768px) {

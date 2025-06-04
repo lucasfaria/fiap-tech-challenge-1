@@ -1,5 +1,4 @@
 import Btn from '@components/compButton'
-import { useTransactionContext } from '@context/TransactionContext'
 import { TextField } from '@mui/material'
 import Box from '@mui/material/Box'
 import FormControl from '@mui/material/FormControl'
@@ -9,33 +8,35 @@ import Select, { SelectChangeEvent } from '@mui/material/Select'
 import { TransactionProps } from '@services/Transaction'
 import { useState } from 'react'
 import * as S from './styles'
+import { useTransactionContext } from '@context/TransactionContext'
 
-export default function Actions() {
-  const [transactionType, setTransactionType] = useState<string | undefined>('')
-  const [value, setValue] = useState<number | undefined>(0)
-  const { addTransaction } = useTransactionContext()
+export default function Update({ id, value, type, onClose }: TransactionProps) {
+  const [transactionType, setTransactionType] = useState<string | undefined>(
+    type
+  )
+
+  const [amount, setAmount] = useState<number | undefined>(value)
+
+  const { updateTransaction } = useTransactionContext()
+
+  const update = async () => {
+    if (id !== undefined && amount !== undefined) {
+      await updateTransaction(id, {
+        date: new Date().toISOString(),
+        type: transactionType || '',
+        value: amount,
+      })
+      if (onClose) onClose()
+    }
+  }
 
   const handleChange = (event: SelectChangeEvent) => {
     setTransactionType(event.target.value as string)
   }
 
-  const saveTransaction = async () => {
-    if (!transactionType || !value) return
-
-    await addTransaction({
-      id: Date.now().toString(),
-      date: new Date().toISOString(),
-      type: transactionType,
-      value: value,
-    } as TransactionProps)
-
-    setValue(0)
-    setTransactionType('')
-  }
-
   return (
     <S.ContainerActions>
-      <h3>Nova transação</h3>
+      <h3>Editar transação</h3>
 
       <Box sx={{ marginTop: 3 }}>
         <FormControl fullWidth>
@@ -50,6 +51,7 @@ export default function Actions() {
             onChange={handleChange}
             color="secondary"
           >
+            <MenuItem>Selecione o tipo de transação</MenuItem>
             <MenuItem value="Depósito">Depósito</MenuItem>
             <MenuItem value="Transferência">Transferência</MenuItem>
           </Select>
@@ -63,8 +65,8 @@ export default function Actions() {
             label="Valor"
             color="secondary"
             variant="outlined"
-            value={value}
-            onChange={(e) => setValue(Number(e.target.value))}
+            value={amount}
+            onChange={(e) => setAmount(Number(e.target.value))}
           />
         </FormControl>
       </Box>
@@ -75,9 +77,9 @@ export default function Actions() {
             size="large"
             color="secondary"
             variant="contained"
-            onClick={saveTransaction}
+            onClick={update}
           >
-            Concluir transação
+            Atualizar transação
           </Btn>
         </FormControl>
       </Box>

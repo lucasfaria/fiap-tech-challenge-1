@@ -32,13 +32,9 @@ export default function Layout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className}`}>
-        <ThemeProvider theme={theme}>
-          <Header />
-          <Container>{children}</Container>
-        </ThemeProvider>
-      </body>
-    </html>
+    <ThemeProvider theme={theme}>
+      <Header />
+      <Container className={inter.className}>{children}</Container>
+    </ThemeProvider>
   )
 }

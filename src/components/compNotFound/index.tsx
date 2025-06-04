@@ -17,7 +17,7 @@ export default function NotFound() {
           </p>
 
           <p>
-            <Btn href="./" size="large" color="warning" variant="contained">
+            <Btn href="/" size="large" color="warning" variant="contained">
               Voltar ao início
             </Btn>
           </p>

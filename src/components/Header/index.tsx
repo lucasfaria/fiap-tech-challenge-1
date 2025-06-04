@@ -5,7 +5,6 @@ import Btn from '../compButton'
 import * as S from './styles'
 import Link from 'next/link'
 import Image from 'next/image'
-import MenuIcon from '@mui/icons-material/Menu'
 
 export default function Header() {
   const theme = useTheme()
@@ -47,8 +46,6 @@ export default function Header() {
             Já tenho conta
           </Btn>
         </S.Buttons>
-
-        <MenuIcon color="primary" />
       </Container>
     </S.Header>
   )

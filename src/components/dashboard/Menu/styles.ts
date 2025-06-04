@@ -5,15 +5,13 @@ type MenuProps = {
 }
 
 export const Menu = styled.div<MenuProps>`
-  background-color: var(--background);
   border-radius: var(--radius);
-  height: calc(100vh - 120px);
 
   ul {
-    padding: 24px;
+    display: flex;
+    justify-content: space-between;
 
     li {
-      border-bottom: solid 1px #000000;
       list-style: none;
       text-align: center;
 
@@ -37,6 +35,20 @@ export const Menu = styled.div<MenuProps>`
         a {
           color: ${(props) => props.$color};
         }
+      }
+    }
+  }
+
+  @media (min-width: 992px) {
+    background-color: var(--background);
+    height: calc(100vh - 120px);
+
+    ul {
+      padding: 24px;
+      flex-direction: column;
+
+      li {
+        border-bottom: solid 1px #000000;
       }
     }
   }

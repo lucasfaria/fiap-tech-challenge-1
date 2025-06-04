@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const CashFlowContainer = styled.div`
   background-color: var(--background);
   border-radius: var(--radius);
+  height: calc(100vh - 120px);
   padding: 32px 24px;
 
   h3 {

@@ -1,19 +1,19 @@
 'use client'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
 import { useTheme } from '@mui/material'
-import { Transaction, TransactionProps } from '@services/Transaction'
+import { User, UserProps } from '@services/User'
 import moment from 'moment'
 import 'moment/locale/pt-br'
 import { useEffect, useState } from 'react'
 import * as S from './styles'
-import { User, UserProps } from '@services/User'
+import { useTransactionContext } from '@context/TransactionContext'
 
-const transactionService = new Transaction()
 const userService = new User()
 moment.locale('pt-br')
 
 export default function Welcome() {
-  const [transactions, setTransactions] = useState<TransactionProps[]>([])
+  const { total } = useTransactionContext()
+
   const theme = useTheme()
   const [user, setUser] = useState<UserProps>()
   const [date, setDate] = useState<string | undefined>()
@@ -23,29 +23,13 @@ export default function Welcome() {
     setUser(data)
   }
 
-  const fetchTransactions = async () => {
-    const data = await transactionService.getTransactions()
-    setTransactions(data)
-  }
-
   const today = new Date()
 
   useEffect(() => {
     fetchUser()
-    fetchTransactions()
+
     setDate(moment(today).format('dddd, DD/MM/YYYY'))
   }, [])
-
-  const getTotal = () => {
-    const total = transactions.reduce((total, transaction) => {
-      if (transaction.type === 'Transferência') {
-        return total - transaction.value
-      }
-      return total + transaction.value
-    }, 0)
-
-    return new Intl.NumberFormat('pt-BR').format(total)
-  }
 
   return (
     <S.WelcomeContainer $background={theme.palette.secondary.main}>
@@ -57,7 +41,7 @@ export default function Welcome() {
       <div>
         <RemoveRedEyeIcon color="warning" />
         <S.Account>Conta Corrente</S.Account>
-        <S.Assets>{`R$ ${getTotal()}`}</S.Assets>
+        <S.Assets>R$ {total.toFixed(2)}</S.Assets>
       </div>
     </S.WelcomeContainer>
   )
