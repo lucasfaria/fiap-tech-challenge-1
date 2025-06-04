@@ -12,4 +12,4 @@ Agora para rodar o projeto
 npm run dev
 ```
 
-Isso já iniciará o json-server a aplicação
+Isso já iniciará o json-server e a aplicação
